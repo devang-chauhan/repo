@@ -12,12 +12,9 @@
 
   <script type="text/javascript">
     var parse = window.location.search.replace("?", "").split("&");
-    parse.forEach(function(d) {
-      keyValue = d.split("=");
-      inputParameters[keyValue[0].toLowerCase()] = decodeURIComponent(keyValue[1]);
-    });
-    var owner = inputParameters.owner;
-    document.getElementById('place').innerHTML = owner;
+
+    console.log(parse);
+    document.getElementById('place').innerHTML = parse;
   </script>
 
 
