@@ -10,37 +10,8 @@
   <div class="container">
     <h1>Test</h1>
 
-    <script data-cfasync="false" type="text/javascript">
-      function parseUri() {
-        // This function parses uri to find owner and project name/description
-        // and creates the base json object to generate the page
-
-        var inputParameters = {
-          owner: "",
-          id: "",
-          fork: "",
-          scale: 1,
-          offset: "0,0",
-          slide: 0
-        }
-
-        // parse Uri
-        var parse = window.location.search.replace("?", "").split("&")
-
-        if (parse[0] == "") {
-          alert("Can't find the file!");
-          return;
-        }
-
-        parse.forEach(function(d) {
-          keyValue = d.split("=");
-          inputParameters[keyValue[0].toLowerCase()] = decodeURIComponent(keyValue[1]);
-        })
-
-        var owner = inputParameters.owner;
-        console.log("This is running");
-        console.log(owner);
-        parseUri();
+    <script type="text/javascript">
+      console.log(window.location.search);
     </script>
 
   </div>
