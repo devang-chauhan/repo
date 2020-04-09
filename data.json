@@ -1,20 +1,25 @@
 {
-  "scripts":[
-    {
+  "repo": {
+    "shadow_range": {
       "file": "shadow_range",
       "canvas": "shadow_range_GH",
-      "thumbnai": "shadow_range_Rhino",
-      "descritption": "A file showing how to do a shadow range study",
-      "tags": "#shadowrange #shadows #Ladybug"
-    }
-,
-    {
+      "thumbnail": "shadow_range_Rhino",
+      "description": "A file showing how to do a shadow range study",
+      "tags": "#shadowrange #shadows #Ladybug",
+      "class": "card",
+      "path":"data/shadow_range/shadow_range.zip",
+      "owner":"Devang"
+    },
+    "Pedestrian_Views": {
       "file": "Pedestrian_Views",
       "canvas": "Pedestrian_Views_GH",
-      "thumbnai": "Pedestrian_Views_Rhino",
-      "descritption": "A file showing views along a pedestrian route",
-      "tags": "#pedestrian #views #Ladybug"
-    }
+      "thumbnail": "Pedestrian_Views_Rhino",
+      "description": "A file showing views along a pedestrian route",
+      "tags": "#pedestrian #views #Ladybug",
+      "class": "card",
+      "path":"data/Pedestrian_Views/Pedestrian_Views.zip",
+      "owner":"Blanca"
 
-  ]
+    }
+  }
 }

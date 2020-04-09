@@ -2,19 +2,65 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+  <title>Script Viewer</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <script src="bootstrap/js/jquery.slim.min.js"></script>
+  <script src="bootstrap/js/tether.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/scripts.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 </head>
 
 <body>
 
-  <h1 id="place">This Should Work</h1>
+  <div class="container">
+    <div class="mt-5">
+      <h3 id="header" class="text-capitalize text-center">This is a place holder</h4>
+    </div>
+    <img class="img-fluid border rounded-8" src="images/loading.gif" id="load" />
+    <p id="description" class="text-center"></p>
+    <p class="text-center">This file is contributed by <a id="contributor" href=#>Pogo</a>
+    </p>
+
+
+  </div>
 
   <script type="text/javascript">
-    var parse = window.location.search.replace("?", "").split("&");
+    // Extracting key from URL
+    var key = window.location.search.replace("?", "").split("=")[1];
 
-    console.log(parse);
-    document.getElementById('place').innerHTML = parse;
+    $(document).ready(function() {
+      $.ajax({
+        type: 'GET',
+        url: 'data.json',
+        dataType: 'json',
+        success: jsonParser
+      });
+    });
+
+    $.getJSON('data.json', function(data) {
+      var main = data;
+
+      // Assigninig Header
+      var header = key.replace("_", " ");
+      document.getElementById('header').innerHTML = header;
+
+      // Assigninig GH canvas
+      var canvas = 'data/' + key + '/' + main.repo[key].canvas + '.png';
+      $("#image").attr("src", canvas);
+      document.getElementById('load').src = canvas;
+
+      // Assigning descritption
+      var description = main.repo[key].description;
+      document.getElementById('description').innerHTML = description;
+
+      // Assigning contributor
+      var contributor = main.repo[key].owner;
+      document.getElementById('contributor').innerHTML = contributor;
+
+    });
   </script>
 
 

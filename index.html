@@ -10,9 +10,84 @@
   <script src="bootstrap/js/tether.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="bootstrap/js/scripts.js"></script>
-  <script src="js/script.js">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $.ajax({
+        type: 'GET',
+        url: 'data.json',
+        dataType: 'json',
+        success: jsonParser
+      });
+    });
+
+    function jsonParser(json) {
+      $('#load').fadeOut();
+
+      $.getJSON('data.json', function(data) {
+        var main = data;
+        $.each(data.repo, function(k, v) {
+          var filename = v.file;
+          var thumbnail = v.thumbnail;
+          var tags = v.tags;
+          var class_id = v.class;
+          // Load all the thumbnails
+          $('#grid').append('<img class="card-images card-img-top img-fluid" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
+        });
+
+
+        // Wrap all the images in anchor tag and supply Query Strings
+        $(function() {
+          $('#grid .card-images').each(function() { // For each image
+            var a = $(this).attr('id');
+            $(this).wrap('<a href="viewer.html?owner=' + a + '"></a>');
+          });
+        });
+
+
+        // Wrap all anchor tags in section tag
+        $(function() {
+          $('#grid a').each(function() { // For each anchor tag
+            var key = $(this).attr('href');
+            var strippedkey = key.split("=");
+            $(this).wrap('<section class="card mb-5" id="' + strippedkey[1] + '"></section>')
+          });
+        });
+
+
+        // Add a div tage inside each section tag
+        $(function() {
+          $('#grid section').each(function() { // For each section tag
+            var key = $(this).attr('id');
+            $(this).append('<div class="card-body" id="' + key + '"></div>')
+          });
+        });
+
+
+        // add file name and tags to the div container
+        $(function() {
+          $('#grid .card-body').each(function() { // div tag defined above
+            key = $(this).attr("id");
+            $(this).append('<h5 class="card-title mb-0 mt-0">' + key + '</h5>');
+            var tagsToAdd = main.repo[key].tags;
+            $(this).append('<h7 class="card-subtitle mt-0">' + tagsToAdd + '</h7>');
+          });
+        });
+
+        // Wrap all section tags in a div tag
+        $(function() {
+          $('#grid section').each(function() { // For each section tag
+            $(this).wrap('<div class="col"></div>')
+          });
+        });
+
+
+      });
+
+    }
   </script>
+
 </head>
 
 <body>
@@ -35,51 +110,13 @@
   <div class="container">
 
     <!-- Grid of Cards -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="grid">
 
-      <div class="col">
-        <section class="card mb-5" id="shadow_range">
-          <a href="shadow_range/shadow_range.html"><img class="card-img-top img-fluid" src="shadow_range/shadow.gif" alt="shadow_range"></a>
-          <div class="card-body">
-            <h5 class="card-title mb-0 mt-0">Shadow Range</h5>
-            <h7 class="card-subtitle mt-0">#Ladybug #Shadow</h7>
-          </div>
-        </section>
-      </div>
-
-      <div class="col">
-        <section class="card mb-5" id="pedestrian_views">
-          <a href="pedestrian_views/pedestrian_views.html"><img class="card-img-top img-fluid" src="pedestrian_views/views.gif" alt="pedestrian_views"></a>
-          <div class="card-body">
-            <h5 class="card-title mb-0 mt-0">Pedestrian Views</h5>
-            <h7 class="card-subtitle mt-0">#Ladybug #Views #Pedestrian</h7>
-          </div>
-        </section>
-      </div>
-
-      <div class="col">
-        <section class="card mb-5" id="drchase">
-          <img class="card-img-top img-fluid" src="https://github.com/devngc/private/blob/master/images/DF.jpg" alt="temp_photo">
-          <div class="card-body">
-            <h5 class="card-title mt-0 mb-0">Temp</h5>
-            <h7 class="card-subtitle mt-0">Temp</h7>
-          </div>
-        </section>
-      </div>
-
+      <!-- Loader -->
+      <div class="mx-auto d-block"><img src="images/loading.gif" id="load" width="100" height="100" /></div>
     </div>
 
-    <section id="mission">
-      <h5>Mission Statement</h5>
-      <p></p>
-    </section>
-
-
-    <a name="dog" href="https://devang.io/repo/viewer?owner=dev&fork=hydra&id=shutt" id="#shutt">shutt</a>
-
-
-
-
+  </div>
   </div>
 
 </body>
