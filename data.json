@@ -25,7 +25,7 @@
       "canvas": "Windrose_GH",
       "thumbnail": "Windrose_Rhino",
       "description": "A file showing how to do a create a windrose",
-      "tags": "#windrose#Ladybug",
+      "tags": "#windrose #Ladybug",
       "class": "card",
       "path":"data/Windrose/Windrose.zip",
       "contributor":"Devang"
