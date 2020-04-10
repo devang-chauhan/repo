@@ -57,7 +57,7 @@
       });
     });
 
-    $.getJSON('https://raw.githubusercontent.com/devngc/Work-in-Progress/master/data.json', function(data) {
+    $.getJSON('https://raw.githubusercontent.com/devngc/repo/gh-pages/data.json', function(data) {
       var main = data;
 
       // Assigninig file name
@@ -75,7 +75,7 @@
       document.getElementById('description').innerHTML = description;
 
       // Assigning contributor
-      var contributor = main.repo[key].owner;
+      var contributor = main.repo[key].contributor;
       document.getElementById('contributor').innerHTML = contributor;
 
       // Assigning the zip file to download
