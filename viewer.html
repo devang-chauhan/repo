@@ -17,24 +17,30 @@
 
   <div class="container">
 
+    <!-- Name of the file -->
     <div class="mt-5">
       <h3 id="header" class="text-capitalize text-center">This file is loading..</h4>
     </div>
 
+    <!-- Image of the canvas -->
     <div class="mx-auto d-block text-center">
       <img class="img-fluid" src="images/loading.gif" id="load" width="100" height="100" style="border-color:black;border-style:solid;border-radius:12px;border-width:1px;" />
     </div>
 
+    <!-- Description of the file -->
     <p id="description" class="text-center"></p>
 
+    <!-- Contributor name -->
     <p class="text-center">File contributed by ~ <span class="font-weight-bold" id="contributor">Boss</span></p>
 
-    <a id="zip" class="btn btn-outline-secondary btn-block" href="#">Download</a>
+    <!-- Download button -->
+    <div class="text-center">
+      <a id="zip" class="btn btn-outline-secondary btn-sm" href="#">Download</a>
+    </div>
 
-    <p class="text-center font-weight-light">For questions, please use <a class="text-info"
+    <!-- Help channel link -->
+    <p class="text-center font-weight-light mt-3">For questions, please use <a class="text-info"
         href="https://teams.microsoft.com/l/channel/19%3a960454fa37784c2c8e6bdf5f31bdb407%40thread.skype/General?groupId=17c91beb-b1f2-4bc5-b007-33e44cd8eb4c&tenantId=3a18cb39-fa10-4a3d-a20a-905bbadc4da5">this</a> channel on MS Teams</p>
-
-
 
   </div>
 
@@ -54,11 +60,11 @@
     $.getJSON('https://raw.githubusercontent.com/devngc/Work-in-Progress/master/data.json', function(data) {
       var main = data;
 
-      // Assigninig Header
+      // Assigninig file name
       var header = key.replace("_", " ");
       document.getElementById('header').innerHTML = header;
 
-      // Assigninig GH canvas
+      // Assigninig Canvas image
       var canvas = 'data/' + key + '/' + main.repo[key].canvas + '.png';
       document.getElementById('load').src = canvas;
       $("#load").removeAttr("width");
