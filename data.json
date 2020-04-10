@@ -8,7 +8,7 @@
       "tags": "#shadowrange #shadows #Ladybug",
       "class": "card",
       "path":"data/shadow_range/shadow_range.zip",
-      "owner":"Devang"
+      "contributor":"Devang"
     },
     "Pedestrian_Views": {
       "file": "Pedestrian_Views",
@@ -18,7 +18,7 @@
       "tags": "#pedestrian #views #Ladybug",
       "class": "card",
       "path":"data/Pedestrian_Views/Pedestrian_Views.zip",
-      "owner":"Blanca"
+      "contributor":"Blanca"
 
     }
   }
