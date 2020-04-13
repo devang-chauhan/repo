@@ -19,47 +19,7 @@
       "class": "card",
       "path":"data/Pedestrian_Views/Pedestrian_Views.zip",
       "contributor":"Blanca"
-    },
-    "Windrose": {
-      "file": "Windrose",
-      "canvas": "Windrose_GH",
-      "thumbnail": "Windrose_Rhino",
-      "description": "A file showing how to do a create a windrose",
-      "tags": "#windrose #Ladybug",
-      "class": "card",
-      "path":"data/Windrose/Windrose.zip",
-      "contributor":"Devang"
-    },
-    "radiation_dome": {
-      "file": "radiation_dome",
-      "canvas": "radiation_dome_GH",
-      "thumbnail": "radiation_dome_Rhino",
-      "description": "A file showing how to do a radiation domes",
-      "tags": "#Radiation #Ladybug",
-      "class": "card",
-      "path":"data/radiation_dome/radiation_dome.zip",
-      "contributor":"Devang"
-    },
-    "radiation_rose": {
-      "file": "radiation_rose",
-      "canvas": "radiation_rose_GH",
-      "thumbnail": "radiation_rose_Rhino",
-      "description": "A file showing how to do a radiation rose",
-      "tags": "#Radiation #Ladybug",
-      "class": "card",
-      "path":"data/radiation_rose/radiation_rose.zip",
-      "contributor":"Devang"
     }
-
-
-
-
-
-
-
-
-
-
-
+  
   }
 }
