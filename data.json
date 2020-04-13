@@ -37,7 +37,7 @@
       "description": "A file showing how to do a radiation domes",
       "tags": "#Radiation #Ladybug",
       "class": "card",
-      "path":"data/Windrose/radiation_dome.zip",
+      "path":"data/radiation_dome/radiation_dome.zip",
       "contributor":"Devang"
     },
     "radiation_rose": {
@@ -47,7 +47,7 @@
       "description": "A file showing how to do a radiation rose",
       "tags": "#Radiation #Ladybug",
       "class": "card",
-      "path":"data/Windrose/radiation_rose.zip",
+      "path":"data/radiation_rose/radiation_rose.zip",
       "contributor":"Devang"
     }
 
