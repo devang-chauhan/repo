@@ -28,7 +28,7 @@
     function jsonParser(json) {
       $('#load').fadeOut();
 
-      $.getJSON('https://raw.githubusercontent.com/devngc/repo/gh-pages/data.json', function(data) {
+      $.getJSON('data.json', function(data) {
         var main = data;
         $.each(data.repo, function(k, v) {
           var filename = v.file;
@@ -106,7 +106,7 @@
 
       <div class="collapse navbar-collapse" id="myTogglerNav">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="#">About</a>
+          <a class="nav-item nav-link" href="#">About</a>
           <a class="nav-item nav-link" href="#">Planned Features</a>
           <a class="nav-item nav-link" href="#">How to Contribute</a>
           <a class="nav-item nav-link" href="#">Contributors</a>
@@ -125,6 +125,7 @@
       <!-- <div class="mx-auto d-block text-center">
         <img src="images/loading.gif" id="load" width="100" height="100" />
       </div> -->
+
 
     </div>
   </div>
