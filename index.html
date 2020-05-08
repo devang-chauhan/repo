@@ -93,19 +93,19 @@
     }
 
 
-    // On / off function to hide cards
+    // Search and hide cards
     function hide_cards() {
 
       $.getJSON('data.json', function(data) {
         var main = data;
 
-        // Search by the user
+        // Keyword provided by the user
         var search = document.getElementById('filtering').value;
 
-        // Getting a list of cards to show based on search
+        // Getting a list of all the cards
         var cards = main.repo;
 
-        // Formatting all tags
+        // Formatting all tags for processing later
         function format_array(array) {
           let formatted_tags = [];
           for (i = 0; i < array.length; i++) {
@@ -116,7 +116,7 @@
         }
 
 
-        // Checking if a part of keyword is in the list of filenames
+        // Checking if a part of keyword is in any of the tags
         function check_key_in_string(key, array) {
           var total = 0;
           for (i = 0; i < array.length; i++) {
@@ -143,6 +143,7 @@
           }
           return keys;
         }
+
 
         // List of card to display
         var filtered_cards = filter_cards(search);
@@ -175,17 +176,6 @@
 
       });
     }
-
-
-    // Filer results
-    // $(document).ready(function() {
-    //   $("#filtering").on("keyup", function() {
-    //     var value = $(this).val().toLowerCase();
-    //     $("#myTable tr").filter(function() {
-    //       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    //     });
-    //   });
-    // });
   </script>
 
 </head>
@@ -223,7 +213,6 @@
     </h6>
 
     <!-- Grid of Cards -->
-
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 rounded-lg text-center" id="grid"></div>
 
     <!-- Loader-->
