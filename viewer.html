@@ -30,6 +30,9 @@
     <!-- Description of the file -->
     <p id="description" class="text-center"></p>
 
+    <!-- Tags added by the user -->
+    <p id="tags" class="text-center"></p>
+
     <!-- Contributor name -->
     <p class="text-center">File contributed by ~ <span class="font-weight-bold" id="contributor">Boss</span></p>
 
@@ -74,6 +77,9 @@
       var description = main.repo[key].description;
       document.getElementById('description').innerHTML = description;
 
+      // Assigning Tags
+      var tags = main.repo[key].tags;
+      document.getElementById("tags").innerHTML = tags;
       // Assigning contributor
       var contributor = main.repo[key].contributor;
       document.getElementById('contributor').innerHTML = contributor;
