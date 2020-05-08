@@ -7,6 +7,7 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>HOK Script Repository</title>
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="bootstrap/js/jquery.slim.min.js"></script>
   <script src="bootstrap/js/tether.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -55,7 +56,7 @@
           $('#grid a').each(function() { // For each anchor tag
             var key = $(this).attr('href');
             var strippedkey = key.split("=");
-            $(this).wrap('<section class="card mb-5" id="' + strippedkey[1] + '"></section>')
+            $(this).wrap('<section class="card mb-5 show-border" id="' + strippedkey[1] + '"></section>')
           });
         });
 
@@ -210,7 +211,7 @@
     <h6 title="Click on images to see the details and download the files..." style="padding-bottom:10px;">
       <span id="welcome" class="font-weight-normal">Welcome to HOKware</span>
       <span style="float:right;">
-        <input type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
+        <input class="font-weight-normal text-muted" type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
       </span>
     </h6>
 
