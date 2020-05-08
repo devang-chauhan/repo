@@ -74,7 +74,7 @@
           $('#grid .card-body').each(function() { // div tag defined above
             key = $(this).attr("id");
             cardName = key.replace("_", " ");
-            $(this).append('<h5 class="card-title mb-0 mt-0 text-capitalize">' + cardName + '</h5>');
+            $(this).append('<h6 class="font-weight-normal card-title mb-0 mt-0 text-capitalize">' + cardName + '</h6>');
             // var tagsToAdd = main.repo[key].tags;
             // $(this).append('<h7 class="card-subtitle mt-0 text-secondary">' + tagsToAdd + '</h7>');
           });
