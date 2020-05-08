@@ -148,7 +148,12 @@
         var filtered_cards = filter_cards(search);
         var num_cards_to_display = filtered_cards.length;
         if (num_cards_to_display == 0) {
-
+          // Following two lines need deleting. Just keeping here for sometime for testing
+          // var node = document.getElementById('welcome');
+          // node.innerHTML = '<span style="text-align:center">No scripts found. Please try an alternate keyword</span>';
+          document.getElementById("welcome").innerHTML = "No scripts found. Please try an alternate keyword";
+        } else if (search.length == 0) {
+          location.reload();
         }
 
         // Showing cards based on Search query
@@ -211,21 +216,23 @@
   <div class="container">
 
     <h6 title="Click on images to see the details and download the files..." style="padding-bottom:10px;">
-      Welcome to HOKware! <span></span>
+      <span id="welcome">Welcome to HOKware</span>
       <span style="float:right;">
         <input type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
       </span>
     </h6>
-    <!-- Grid of Cards -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 rounded-lg" id="grid">
 
-      <!-- Loader-->
-      <!-- <div class="mx-auto d-block text-center">
+    <!-- Grid of Cards -->
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 rounded-lg text-center" id="grid"></div>
+
+    <!-- Loader-->
+    <!-- <div class="mx-auto d-block text-center">
         <img src="images/loading.gif" id="load" width="100" height="100" />
       </div> -->
 
 
-    </div>
+
   </div>
   </div>
 </body>
