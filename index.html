@@ -88,9 +88,19 @@
           });
         });
 
+      });
+
+    }
 
 
+    // On / off function to hide cards
+    function hide_cards() {
 
+      $.getJSON('data.json', function(data) {
+        var main = data;
+
+        // Search by the user
+        var search = document.getElementById('filtering').value;
 
         // Getting a list of cards to show based on search
         var cards = main.repo;
@@ -106,16 +116,28 @@
         }
 
 
+        // Checking if a part of keyword is in the list of filenames
+        function check_key_in_string(key, array) {
+          var total = 0;
+          for (i = 0; i < array.length; i++) {
+            if (array[i].includes(key)) {
+              total += 1;
+            } else {}
+          }
+          return total;
+        }
+
+
         // Filtering Card names based on search query
-        function filter_cards(keyword) {
-          let keyword_toCheck = keyword.toLowerCase();
+        function filter_cards(search) {
+          let keyword_toCheck = search.toLowerCase();
           let keys = [];
           for (key in cards) {
             let tags = cards[key].tags;
             let tags_list = tags.split("#").slice(1, );
             let formatted_tag_list = format_array(tags_list);
-            let tag_check = formatted_tag_list.includes(keyword_toCheck);
-            if (tag_check == true) {
+            let tag_check = check_key_in_string(keyword_toCheck, formatted_tag_list);
+            if (tag_check > 0) {
               keys.push(key);
             }
           }
@@ -123,28 +145,31 @@
         }
 
         // List of card to display
-        var filetered_cards = filter_cards("Ladybug");
+        var filtered_cards = filter_cards(search);
+        var num_cards_to_display = filtered_cards.length;
+        if (num_cards_to_display == 0) {
+
+        }
 
         // Showing cards based on Search query
         $(function() {
           $('div .col').each(function() {
             key = $(this).attr("id"); //Get id value
-            let visibility_check = filetered_cards.includes(key);
-            console.log(visibility_check);
+            let visibility_check = filtered_cards.includes(key);
             if (visibility_check == false) {
               $(this).css({
                 "display": "none"
               });
-            } else {}
+            } else {
+              $(this).css({
+                "display": "initial"
+              });
+            }
           });
         });
 
-
       });
-
     }
-
-
 
 
     // Filer results
@@ -185,10 +210,10 @@
 
   <div class="container">
 
-    <h6 title="Click on images to see the details and download the files...">
+    <h6 title="Click on images to see the details and download the files..." style="padding-bottom:10px;">
       Welcome to HOKware! <span></span>
-      <span style="float:right">
-        <input type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25">
+      <span style="float:right;">
+        <input type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
       </span>
     </h6>
     <!-- Grid of Cards -->
