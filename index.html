@@ -35,6 +35,7 @@
           var thumbnail = v.thumbnail;
           var tags = v.tags;
           var class_id = v.class;
+
           // Load all the thumbnails
           $('#grid').append('<img class="card-images card-img-top img-fluid" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
         });
@@ -82,13 +83,79 @@
         // Wrap all section tags in a div tag
         $(function() {
           $('#grid section').each(function() { // For each section tag
-            $(this).wrap('<div class="col"></div>')
+            let id_to_add = $(this).attr("id");
+            $(this).wrap('<div class="col" id="' + id_to_add + '"></div>')
           });
         });
+
+
+
+
+
+        // Getting a list of cards to show based on search
+        var cards = main.repo;
+
+        // Formatting all tags
+        function format_array(array) {
+          let formatted_tags = [];
+          for (i = 0; i < array.length; i++) {
+            let formatted_tag = (array[i].toLowerCase()).trim();
+            formatted_tags.push(formatted_tag);
+          }
+          return formatted_tags;
+        }
+
+
+        // Filtering Card names based on search query
+        function filter_cards(keyword) {
+          let keyword_toCheck = keyword.toLowerCase();
+          let keys = [];
+          for (key in cards) {
+            let tags = cards[key].tags;
+            let tags_list = tags.split("#").slice(1, );
+            let formatted_tag_list = format_array(tags_list);
+            let tag_check = formatted_tag_list.includes(keyword_toCheck);
+            if (tag_check == true) {
+              keys.push(key);
+            }
+          }
+          return keys;
+        }
+
+        // List of card to display
+        var filetered_cards = filter_cards("Ladybug");
+
+        // Showing cards based on Search query
+        $(function() {
+          $('div .col').each(function() {
+            key = $(this).attr("id"); //Get id value
+            let visibility_check = filetered_cards.includes(key);
+            console.log(visibility_check);
+            if (visibility_check == false) {
+              $(this).css({
+                "display": "none"
+              });
+            } else {}
+          });
+        });
+
 
       });
 
     }
+
+
+
+
+    // Filer results
+    // $(document).ready(function() {
+    //   $("#filtering").on("keyup", function() {
+    //     var value = $(this).val().toLowerCase();
+    //     $("#myTable tr").filter(function() {
+    //       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //     });
+    //   });
+    // });
   </script>
 
 </head>
@@ -118,6 +185,12 @@
 
   <div class="container">
 
+    <h6 title="Click on images to see the details and download the files...">
+      Welcome to HOKware! <span></span>
+      <span style="float:right">
+        <input type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25">
+      </span>
+    </h6>
     <!-- Grid of Cards -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 rounded-lg" id="grid">
 
