@@ -39,7 +39,7 @@
           var class_id = v.class;
 
           // Load all the thumbnails
-          $('#grid').append('<img class="card-images card-img-top img-fluid fixed-height" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
+          $('#grid').append('<img class="card-images card-img-top img-fluid" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
         });
 
 
@@ -154,7 +154,7 @@
           // Following two lines need deleting. Just keeping here for sometime for testing
           // var node = document.getElementById('welcome');
           // node.innerHTML = '<span style="text-align:center">No scripts found. Please try an alternate keyword</span>';
-          document.getElementById("welcome").innerHTML = "No scripts found. Please try an alternate keyword";
+          document.getElementById("welcome").innerHTML = "No scripts found";
         } else if (search.length == 0) {
           location.reload();
         }
@@ -187,6 +187,7 @@
   <nav class="navbar navbar-light navbar-expand-sm" style="background-color:white;">
     <div class="container">
       <img src="images/HOK_logo_RGB_jpg_lg.jpg" style="width:40px;" alt="HOK Logo">
+      <span id="welcome" class="font-weight-normal" style="padding-left:10px;">Welcome to HOKware</span>
       <!-- <h2 class="navbar-brand m-0" style="color:rgb(249, 35, 47);" href="#">Script Repository</h2> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myTogglerNav" aria-controls="myTogglerNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -200,21 +201,22 @@
             href="https://teams.microsoft.com/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_2772894784?context=%7B%22subEntityId%22%3Anull%2C%22channelId%22%3A%2219%3A8f5e1d726b8d44c2901df0087b6da8ad%40thread.skype%22%7D&groupId=d5027d70-7fab-44be-85fe-e720db5db428&tenantId=3a18cb39-fa10-4a3d-a20a-905bbadc4da5">Feature
             Requests</a>
           <a class="nav-item nav-link disabled" href="#">Script Requests</a>
-
+          <input class="nav-item nav-link font-weight-normal text-muted" type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
         </div>
       </div>
+
     </div>
   </nav>
 
 
   <div class="container">
 
-    <h6 title="Click on images to see the details and download the files..." style="padding-bottom:10px;">
+    <!-- <h6 title="Click on images to see the details and download the files..." style="padding-bottom:10px;">
       <span id="welcome" class="font-weight-normal">Welcome to HOKware</span>
       <span style="float:right;">
         <input class="font-weight-normal text-muted" type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
       </span>
-    </h6>
+    </h6> -->
 
     <!-- Grid of Cards -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 rounded-lg text-center" id="grid"></div>
