@@ -1,3 +1,7 @@
 .show-border:hover {
   border:2px solid #f25e23;
 }
+
+.fixed-height{
+  height:12vh;
+}

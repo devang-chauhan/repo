@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>HOK Script Repository</title>
+  <link rel="icon" href="images/HOK_logo_RGB_jpg_lg.jpg" sizes="16x16">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="bootstrap/js/jquery.slim.min.js"></script>
@@ -38,7 +39,7 @@
           var class_id = v.class;
 
           // Load all the thumbnails
-          $('#grid').append('<img class="card-images card-img-top img-fluid" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
+          $('#grid').append('<img class="card-images card-img-top img-fluid fixed-height" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
         });
 
 
@@ -226,7 +227,7 @@
 
   <footer class="footer fixed-bottom" style="background-color:white;">
     <div class="container text-center">
-      <h6 class="font-weight-normal text-muted">Prepared by HOK Computational Design Knowledge Group</h6>
+      <h6 class="font-weight-normal text-muted">Powered by HOK Computational Design Group</h6>
     </div>
   </footer>
 </body>
