@@ -183,7 +183,7 @@
 
 <body>
   <!-- Navigation bar -->
-  <nav class="navbar navbar-light navbar-expand-sm" style="background-color:white;">
+  <nav class="navbar navbar-light navbar-expand-sm pb-4" style="background-color:white;">
     <div class="container">
       <img src="images/HOK_logo_RGB_jpg_lg.jpg" style="width:40px;" alt="HOK Logo">
       <span id="welcome" class="font-weight-normal" style="padding-left:10px;">Welcome to HOKware</span>
@@ -195,12 +195,14 @@
       <div class="collapse navbar-collapse" id="myTogglerNav">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="about.html">About</a>
+          <a class="nav-item nav-link disabled" href="about.html">Education</a>
           <a class="nav-item nav-link disabled" href="#">How to Contribute</a>
           <a class="nav-item nav-link"
             href="https://teams.microsoft.com/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_2772894784?context=%7B%22subEntityId%22%3Anull%2C%22channelId%22%3A%2219%3A8f5e1d726b8d44c2901df0087b6da8ad%40thread.skype%22%7D&groupId=d5027d70-7fab-44be-85fe-e720db5db428&tenantId=3a18cb39-fa10-4a3d-a20a-905bbadc4da5">Feature
             Requests</a>
           <a class="nav-item nav-link disabled" href="#">Script Requests</a>
-          <input class="nav-item nav-link font-weight-normal text-muted" type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()">
+          <input class="nav-item nav-link font-weight-normal text-muted" type="text" id="filtering" placeholder="Search by keyword or Project" title="Filter the results by tag name or project name" size="25" oninput="hide_cards()" autocomplete="off"
+            autofocus="autofocus">
         </div>
       </div>
 
