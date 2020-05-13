@@ -38,7 +38,7 @@
           var class_id = v.class;
 
           // Load all the thumbnails
-          $('#grid').append('<img class="card-images card-img-top img-fluid" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
+          $('#grid').append('<img class="card-images card-img-top img-fluid card-border" src="data/' + filename + '/' + thumbnail + '.png" id="' + filename + '" alt="' + tags + '"/>');
         });
 
 
@@ -56,7 +56,7 @@
           $('#grid a').each(function() { // For each anchor tag
             var key = $(this).attr('href');
             var strippedkey = key.split("=");
-            $(this).wrap('<section class="card mb-5 show-border" id="' + strippedkey[1] + '"></section>')
+            $(this).wrap('<section class="card mb-5 card-border show-border" id="' + strippedkey[1] + '"></section>')
           });
         });
 

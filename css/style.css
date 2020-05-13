@@ -11,3 +11,7 @@ input{
   border: 1px solid grey;
   border-radius: 10px !important;
 }
+
+.card-border{
+  border-radius: 10px;
+}
